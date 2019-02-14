@@ -1,0 +1,101 @@
+.orange_line {
+    border-bottom: 1px solid #f43f2a;
+}
+
+header {
+    padding: 20px 0;
+    width: 100%;
+    z-index: 9999;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.flex_header, .basket_header {
+    justify-content: space-between;
+}
+
+.basket_header{
+    width: 100%;
+}
+
+.basket_header_info{
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.header_left {
+    width: 600px;
+}
+
+.header_logo {
+    width: 120px;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+.telephone {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.telephone h2 {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+/** Header Panel **/
+.header_panel{
+    width: 100%;
+    justify-content: space-between;
+}
+.header_panel img {
+    width: 100%;
+    max-width: 35px;
+}
+
+.header_panel a:hover h3 {
+    color: #f43f2a;
+}
+
+nav {
+    margin-left: 50px;
+    width: 100%;
+    max-width: 450px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav a img {
+    margin-left: 10px;
+}
+
+.basket_icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.basket_count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    border-radius: 50%;
+    background: #f43f2a;
+    height: 15px;
+    width: 15px;
+    font-size: 10px;
+    color: #ffffff;
+}
