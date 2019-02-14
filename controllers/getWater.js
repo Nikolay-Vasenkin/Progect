@@ -1,14 +1,17 @@
-const pizzaData = require('../models/pizzaFunc');
+const waterData = require('../models/waterFunc');
 
 class Fetch {
+
     static async getAll(req, res) {
-        const pizza = await pizzaData.getAll();
-        res.send(pizza);
+        const water = await waterData.getAll();
+        res.send(water);
     }
+
     static async create(req, res) {
-        const pizza = await pizzaData.create(req.body);
-        res.send(pizza);
+        const water = await waterData.create(req.body);
+        res.send(water);
     }
+
 }
 
 module.exports = Fetch;

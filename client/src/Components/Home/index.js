@@ -21,7 +21,7 @@ class Home extends Component {
     }
 
     render() {
-        const {pizzaList} = this.props;
+        const {pizzaList, snackList, waterList} = this.props;
         return (
             <section>
                 <Slider/>
@@ -44,20 +44,29 @@ class Home extends Component {
                         <h1>Оригинальные закуски</h1>
                     </Element>
                     <div className="product_container">
-                        <SnackBox/>
-                        <SnackBox/>
-                        <SnackBox/>
-                        <SnackBox/>
+                        {snackList.map((el, i) => {
+                            return (
+                                <SnackBox
+                                    key={i}
+                                    data={el}
+                                />
+                            )
+
+                        })}
                     </div>
 
                     <Element name="anchor_water">
                         <h1>Освежающие напитки</h1>
                     </Element>
                     <div className="product_container">
-                        <WaterBox/>
-                        <WaterBox/>
-                        <WaterBox/>
-                        <WaterBox/>
+                        {waterList.map((el, i) => {
+                            return (
+                                <WaterBox
+                                    key={i}
+                                    data={el}
+                                />
+                            )
+                        })}
                     </div>
                     <h1>О нас</h1>
                     <About/>
@@ -70,7 +79,9 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        pizzaList: state.pizzaList
+        pizzaList: state.pizzaList,
+        snackList: state.snackList,
+        waterList: state.waterList,
     }
 };
 

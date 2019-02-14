@@ -1,17 +1,14 @@
 const mongoose = require('../../libs/dbInit');
 const Schema = mongoose.Schema;
 
-const PizzaSchema = new Schema({
+const SnackSchema = new Schema({
     id: Schema.Types.ObjectId,
+    name: String,
     img: String,
-    type: [{
-       id: Schema.Types.ObjectId,
-       name: String,
-       size: String,
-       price: Number,
-       description: String
-    }]
+    size: String,
+    price: Number,
+    description: String,
 });
 
-mongoose.model('pizzas', PizzaSchema); // Разные коллекции
-module.exports = mongoose.model('pizzas');
+mongoose.model('snacks', SnackSchema);
+module.exports = mongoose.model('snacks');

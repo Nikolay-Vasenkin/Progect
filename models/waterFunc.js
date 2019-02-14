@@ -1,18 +1,20 @@
-const pizza = require('../models/schema/pizza');
+const water = require('../models/schema/water');
 
 class Place {
 
     static async getAll () {
-        return pizza.find().catch(err => console.log(err));
+        return water.find().catch(err => console.log(err));
     }
 
     static async create(postObject) {
-        let newPost = new pizza({
+        let newWater = new water({
             img: postObject.img,
-            type: postObject.type,
+            name: postObject.name,
+            price: postObject.price,
+            size: postObject.size,
         });
-        newPost.save(err => console.log(err));
-        return newPost;
+        newWater.save(err => console.log(err));
+        return newWater;
     }
 
 }

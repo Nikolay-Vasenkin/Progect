@@ -1,5 +1,7 @@
 import {
     GET_PIZZA_LIST,
+    GET_SNACK_LIST,
+    GET_WATER_LIST,
     CHANGE_CURRENT_PAGE,
     ADD_PRODUCT,
     CHANGE_COUNT_PRODUCT,
@@ -7,6 +9,8 @@ import {
 
 const initialState = {
     pizzaList: [],
+    snackList: [],
+    waterList: [],
     basket: [],
     basket_sum: 0,
     currentPage: "",
@@ -20,6 +24,18 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 pizzaList: action.payload
+            };
+
+        case GET_SNACK_LIST :
+            return {
+                ...state,
+                snackList: action.payload
+            };
+
+        case GET_WATER_LIST :
+            return {
+                ...state,
+                waterList: action.payload
             };
 
         case CHANGE_CURRENT_PAGE:

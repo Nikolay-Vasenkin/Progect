@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
 
-/** Img **/
-import SnackIMG from '../../../Static/img/product/snack.png';
-
 /** Module **/
 import connect from "react-redux/es/connect/connect";
 
 class PostItem extends Component {
     render() {
+        const {data} = this.props;
         return (
             <div className="product_box">
-                <img src={SnackIMG} alt="pizza"/>
-                <h4>Четыре сыра</h4>
-                <p>Сливочный соус, сыр блю чиз, моцарелла и смесь сыров чеддер и пармезан</p>
+                <img src={data.img} alt="pizza"/>
+                <h4>{data.name}</h4>
+                <p>{data.description}</p>
                 <div className="price_panel">
-                    <h6>750 руб</h6>
+                    <h6>{data.price} руб</h6>
                     <button className="grad buy">В корзину</button>
                 </div>
             </div>

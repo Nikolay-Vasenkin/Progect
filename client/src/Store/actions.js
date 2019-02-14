@@ -1,5 +1,7 @@
 import {
-    GET_PIZZA_LIST ,
+    GET_PIZZA_LIST,
+    GET_SNACK_LIST,
+    GET_WATER_LIST,
     CHANGE_CURRENT_PAGE,
     ADD_PRODUCT,
     CHANGE_COUNT_PRODUCT,
@@ -12,12 +14,27 @@ export const addProduct = (product) => {
     }
 };
 
-export const getPostList = (pizzaList) => {
+export const getPizzaList = (pizzaList) => {
     return {
         type: GET_PIZZA_LIST,
         payload: pizzaList
     }
 };
+
+export const getSnackList = (snackList) => {
+    return {
+        type: GET_SNACK_LIST,
+        payload: snackList
+    }
+};
+
+export const getWaterList = (waterList) => {
+    return {
+        type: GET_WATER_LIST,
+        payload: waterList
+    }
+};
+
 
 export const changeCurrentPage = (page) => {
     return {

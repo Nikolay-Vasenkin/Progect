@@ -32,8 +32,6 @@ export default class Create extends Component {
 
         console.log(JSON.stringify(sendData));
 
-        // return false;
-
         const requestPublish = await fetch('/api/create_pizza', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},

@@ -10,7 +10,7 @@ import Create from './Components/Create';
 
 /** Redux **/
 import {bindActionCreators} from "redux";
-import {getPostList} from "./Store/actions";
+import {getPizzaList, getSnackList, getWaterList} from "./Store/actions";
 import connect from "react-redux/es/connect/connect";
 
 class App extends Component {
@@ -18,12 +18,19 @@ class App extends Component {
     startRequest = async () => {
         const requestGetPizza = await fetch('/api/pizza');
         const pizzaList = await requestGetPizza.json();
-        this.props.getPostList(pizzaList);
+        this.props.getPizzaList(pizzaList);
+
+        const requestGetSnack = await fetch('/api/snack');
+        const snackList = await requestGetSnack.json();
+        this.props.getSnackList(snackList);
+
+        const requestGetWater = await fetch('/api/water');
+        const waterList = await requestGetWater.json();
+        this.props.getWaterList(waterList);
     };
 
     componentWillMount() {
         this.startRequest();
-        console.log();
     };
 
     render() {
@@ -47,7 +54,9 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getPostList: bindActionCreators(getPostList, dispatch),
+        getPizzaList: bindActionCreators(getPizzaList, dispatch),
+        getSnackList: bindActionCreators(getSnackList, dispatch),
+        getWaterList: bindActionCreators(getWaterList, dispatch),
     }
 };
 

@@ -8,11 +8,12 @@ import connect from "react-redux/es/connect/connect";
 
 class PostItem extends Component {
     render() {
+        const {data} = this.props;
         return (
             <div className="product_box">
-                <h4>Спрайт, 0.5 л</h4>
-                <img src={WaterIMG} alt="pizza"/>
-                <h6 className="water_price">85 руб</h6>
+                <h4>{data.name}</h4>
+                <img src={data.img} alt="pizza"/>
+                <h6 className="water_price">{data.price} руб</h6>
                 <button className="grad buy water_buy">В корзину</button>
             </div>
         )
