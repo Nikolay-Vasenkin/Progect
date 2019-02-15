@@ -5,6 +5,7 @@ import {
     CHANGE_CURRENT_PAGE,
     ADD_PRODUCT,
     CHANGE_COUNT_PRODUCT,
+    DELETE_PRODUCT,
 } from "./const";
 
 const initialState = {
@@ -12,7 +13,6 @@ const initialState = {
     snackList: [],
     waterList: [],
     basket: [],
-    basket_sum: 0,
     currentPage: "",
 };
 
@@ -20,28 +20,25 @@ export const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
+        case CHANGE_CURRENT_PAGE:
+            return {...state, currentPage: action.payload};
+
         case GET_PIZZA_LIST :
             return {
                 ...state,
-                pizzaList: action.payload
+                pizzaList: action.payload,
             };
 
         case GET_SNACK_LIST :
             return {
                 ...state,
-                snackList: action.payload
+                snackList: action.payload,
             };
 
         case GET_WATER_LIST :
             return {
                 ...state,
-                waterList: action.payload
-            };
-
-        case CHANGE_CURRENT_PAGE:
-            return {
-                ...state,
-                currentPage: action.payload
+                waterList: action.payload,
             };
 
         case CHANGE_COUNT_PRODUCT:
@@ -49,27 +46,27 @@ export const rootReducer = (state = initialState, action) => {
                 return pizza._id === action.payload._id;
             });
             let basketArray = [...state.basket];
-            if(action.payload.act === 'inc') {
+            if (action.payload.act === 'inc') {
                 basketArray[indexProduct].count += 1;
             } else {
-                if(basketArray[indexProduct].count > 1) basketArray[indexProduct].count -= 1;
+                if (basketArray[indexProduct].count > 1) basketArray[indexProduct].count -= 1;
             }
             return {
                 ...state,
-                basket: basketArray
+                basket: basketArray,
             };
 
         case ADD_PRODUCT:
             const {_id, name, size, price} = action.payload;
-            const findProductIndex = state.basket.findIndex((pizza) => {
-                return pizza._id === _id;
+            const productIndex = state.basket.findIndex((product) => {
+                return product._id === _id;
             });
-            if (findProductIndex !== -1) {
+            if (productIndex !== -1) {
                 let basketArray = [...state.basket];
-                basketArray[findProductIndex].count += 1;
+                basketArray[productIndex].count += 1;
                 return {
                     ...state,
-                    basket: basketArray
+                    basket: basketArray,
                 };
             } else {
                 const addProduct = {
@@ -81,9 +78,21 @@ export const rootReducer = (state = initialState, action) => {
                 };
                 return {
                     ...state,
-                    basket: state.basket.concat(addProduct)
+                    basket: state.basket.concat(addProduct),
                 };
             }
+
+        case DELETE_PRODUCT:
+            let indexDeleteProduct = state.basket.findIndex(el => {
+                return el._id === action.payload._id
+            });
+            let cloneBasket = [...state.basket];
+            delete cloneBasket[indexDeleteProduct];
+            cloneBasket = cloneBasket.filter((n) => { return n });
+            return {
+                ...state,
+                basket: cloneBasket,
+            };
 
         default:
             return state;

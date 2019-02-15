@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
-/** Img **/
-import WaterIMG from '../../../Static/img/product/water.png';
-
 /** Module **/
 import connect from "react-redux/es/connect/connect";
+import {bindActionCreators} from "redux";
+import {addProduct} from "../../../Store/actions";
 
-class PostItem extends Component {
+class WaterItem extends Component {
     render() {
         const {data} = this.props;
         return (
@@ -14,7 +13,10 @@ class PostItem extends Component {
                 <h4>{data.name}</h4>
                 <img src={data.img} alt="pizza"/>
                 <h6 className="water_price">{data.price} руб</h6>
-                <button className="grad buy water_buy">В корзину</button>
+                <button className="grad buy water_buy"
+                        onClick={() => this.props.addProduct(data)}
+                >
+                    В корзину</button>
             </div>
         )
     }
@@ -26,4 +28,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(PostItem);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: bindActionCreators(addProduct, dispatch),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(WaterItem);

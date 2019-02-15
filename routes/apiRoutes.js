@@ -6,9 +6,6 @@ module.exports = (server) => {
     server.get('/api/pizza', async(req, res) => await pizzaController.getAll(req, res));
     server.get('/api/snack', async(req, res) => await snackController.getAll(req, res));
     server.get('/api/water', async(req, res) => await waterController.getAll(req, res));
-
-    server.post('/api/create_water', async(req, res) => await waterController.create(req, res));
-
     server.get('/api/ping', function (req, res) {
         res.send('API is running');
     });

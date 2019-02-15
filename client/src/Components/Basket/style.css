@@ -7,6 +7,19 @@
     width: 100%;
 }
 
+/* empty */
+.empty_basket{
+    padding-top: 80px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.empty_basket p {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* !empty */
 .basket_table {
     width: 100%;
     flex-direction: column;
@@ -108,12 +121,11 @@
     margin-right: 20px;
 }
 
-.basket_buy_panel button {
+.basket_buy_panel button, .empty_basket button {
     border: 0;
     font-size: 14px;
     color: #fff;
     border-radius: 5px;
-    background: #f43f2a;
     padding: 8px 15px;
     cursor: pointer;
 }

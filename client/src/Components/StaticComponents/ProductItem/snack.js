@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 
 /** Module **/
 import connect from "react-redux/es/connect/connect";
+import {bindActionCreators} from "redux";
+import {addProduct} from "../../../Store/actions";
 
-class PostItem extends Component {
+class SnackItem extends Component {
     render() {
         const {data} = this.props;
         return (
@@ -13,7 +15,9 @@ class PostItem extends Component {
                 <p>{data.description}</p>
                 <div className="price_panel">
                     <h6>{data.price} руб</h6>
-                    <button className="grad buy">В корзину</button>
+                    <button className="grad buy"
+                            onClick={() => this.props.addProduct(data)}
+                    >В корзину</button>
                 </div>
             </div>
         )
@@ -26,4 +30,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(PostItem);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addProduct: bindActionCreators(addProduct, dispatch),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SnackItem);

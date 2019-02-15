@@ -50,7 +50,13 @@ img, .row_table, .buy, .size_panel {
     color: #f43f2a;
 }
 
-.grad, .active_tab, .btn_count, .content_form_modal button {
+.grad,
+.active_tab,
+.btn_count,
+.content_form_modal button,
+.empty_basket button,
+.basket_buy_panel button
+{
     background: #f43f2a;
     background: -moz-linear-gradient(left, #f43f2a 0%, #e8744f 100%);
     background: -webkit-linear-gradient(left, #f43f2a 0%, #e8744f 100%);

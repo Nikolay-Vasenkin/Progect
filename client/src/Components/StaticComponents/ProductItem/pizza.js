@@ -6,7 +6,7 @@ import connect from "react-redux/es/connect/connect";
 import {bindActionCreators} from "redux";
 import {addProduct} from "../../../Store/actions";
 
-class PostItem extends Component {
+class PizzaItem extends Component {
 
     constructor(props) {
         super(props);
@@ -39,7 +39,6 @@ class PostItem extends Component {
                             )
                         })}
                     </div>
-
                     {tab === 0 &&
                         <div className="price_panel">
                             <h6>{pizza[0].price} руб</h6>
@@ -49,7 +48,6 @@ class PostItem extends Component {
                             >В корзину</button>
                         </div>
                     }
-
                     {tab === 1 &&
                         <div className="price_panel">
                             <h6>{pizza[1].price} руб</h6>
@@ -59,10 +57,6 @@ class PostItem extends Component {
                             >В корзину</button>
                         </div>
                     }
-
-
-
-
                 </div>
             </div>
         )
@@ -81,4 +75,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostItem);
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaItem );
