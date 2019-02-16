@@ -9,5 +9,5 @@ const WaterSchema = new Schema({
     size: String,
 });
 
-mongoose.model('waters', WaterSchema); // Разные коллекции
-module.exports = mongoose.model('waters');
+mongoose.model('users', WaterSchema); // Разные коллекции
+module.exports = mongoose.model('users');
