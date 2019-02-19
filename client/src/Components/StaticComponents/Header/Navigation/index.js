@@ -30,7 +30,7 @@ class Navigation extends Component {
                         <img src={BasketImg} alt="pizza"/>
                         <div className="basket_count">{this.props.basket.length}</div>
                     </div>
-                    <h3>Корзина</h3>
+                    <h3 className="hidden_950px">Корзина</h3>
                 </a>
             </div>
         )

@@ -1,6 +1,7 @@
 .about {
     align-items: flex-start;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .about_box {
@@ -19,4 +20,16 @@
     text-transform: uppercase;
     color: #f43f2a;
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    .about_box {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about_box {
+        width: 100%;
+    }
 }

@@ -38,7 +38,7 @@ class App extends Component {
             <HashRouter>
                 <div className="vh_block">
                     <div>
-                        <Header scroll={this.props.scroll}/>
+                        <Header/>
                         <main className="container global_main">
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/basket" component={Basket}/>

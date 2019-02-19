@@ -17,7 +17,7 @@ class Header extends Component {
         const {currentPage} = this.props;
         return (
             <header
-                className={currentPage === "basket" ? "orange_line" : "" }
+                className={currentPage === "basket" ? "flex orange_line" : "flex" }
             >
                 <div className="my_container">
                     {currentPage !== 'basket' ?
@@ -27,7 +27,7 @@ class Header extends Component {
                                     <img src={logoImg} alt="logo" className="header_logo"/>
                                 </a>
                                 <div className="telephone">
-                                    <h2>+7 (929) 292 90 29</h2>
+                                    <h2>+7929292929</h2>
                                     <p>Ежедневно с <i className="orange_color">8:30</i> до <i
                                         className="orange_color">22:00</i></p>
                                 </div>

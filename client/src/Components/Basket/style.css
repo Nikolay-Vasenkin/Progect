@@ -19,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 43px;
+    z-index: -2;
 }
 
 .empty_basket p {

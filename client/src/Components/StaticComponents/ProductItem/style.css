@@ -71,3 +71,23 @@
     margin: 0 auto;
     display: block;
 }
+
+/* MEDIA */
+
+@media screen and (max-width: 1000px){
+    .product_box {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .product_box {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .product_box {
+        width: 100%;
+    }
+}

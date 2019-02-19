@@ -10,23 +10,29 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    height: 92px;
+    min-width: 340px;
+}
+
+.flex_header {
+    width: 100%;
 }
 
 .flex_header, .basket_header {
     justify-content: space-between;
 }
 
-.basket_header{
+.basket_header {
     width: 100%;
 }
 
-.basket_header_info{
+.basket_header_info {
     font-size: 20px;
     margin-left: 30px;
 }
 
 .header_left {
-    width: 600px;
+    width: 620px;
 }
 
 .header_logo {
@@ -41,7 +47,7 @@ header {
     flex-direction: column;
 }
 
-.footer_p_tel{
+.footer_p_tel {
     margin: 4px 0;
 }
 
@@ -51,10 +57,11 @@ header {
 }
 
 /** Header Panel **/
-.header_panel{
+.header_panel {
     width: 100%;
     justify-content: space-between;
 }
+
 .header_panel img {
     width: 100%;
     max-width: 35px;
@@ -65,7 +72,6 @@ header {
 }
 
 nav {
-    margin-left: 50px;
     width: 100%;
     max-width: 450px;
     justify-content: space-between;
@@ -102,4 +108,68 @@ nav a img {
     width: 15px;
     font-size: 10px;
     color: #ffffff;
+}
+
+@media screen and (max-width: 1050px) {
+    .header_logo {
+        margin-right: 20px;
+    }
+    nav {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    .basket_icon{
+        margin-right: 0;
+    }
+
+    .hidden_950px {
+        display: none;
+    }
+
+    nav {
+        width: auto;
+    }
+
+    nav a {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .header_left {
+        width: 140px;
+    }
+
+    .header_left .telephone {
+        display: none;
+    }
+
+    .header_panel {
+        justify-content: flex-end;
+
+    }
+}
+
+@media screen and (max-width: 650px) {
+    nav h3 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .header_panel img{
+        width: 30px;
+    }
+
+    .header_logo, .header_left {
+        width: 80px;
+    }
+
+    nav a {
+        margin-right: 10px;
+    }
+
 }
