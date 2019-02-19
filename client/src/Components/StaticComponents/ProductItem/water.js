@@ -10,13 +10,17 @@ class WaterItem extends Component {
         const {data} = this.props;
         return (
             <div className="product_box">
-                <h4>{data.name}</h4>
-                <img src={data.img} alt="pizza"/>
-                <h6 className="water_price">{data.price} руб</h6>
-                <button className="grad buy water_buy"
-                        onClick={() => this.props.addProduct(data)}
-                >
-                    В корзину</button>
+                <div>
+                    <h4>{data.name}</h4>
+                </div>
+                <div>
+                    <img src={data.img} alt="pizza"/>
+                    <h6 className="water_price">{data.price} руб</h6>
+                    <button className="grad buy water_buy"
+                            onClick={() => this.props.addProduct(data)}
+                    >
+                        В корзину</button>
+                </div>
             </div>
         )
     }

@@ -36,9 +36,14 @@
     margin-top: 20px;
 }
 
-.footer_center li {
+.footer_center li, .footer_center a {
     font-size: 16px;
     margin-right: 18px;
+}
+
+.footer_center a:hover{
+    color: #f43f2a;
+    cursor: pointer;
 }
 
 .mail {

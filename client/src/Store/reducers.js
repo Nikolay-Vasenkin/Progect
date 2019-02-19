@@ -6,6 +6,7 @@ import {
     ADD_PRODUCT,
     CHANGE_COUNT_PRODUCT,
     DELETE_PRODUCT,
+    CHANGE_MODAL_VUE,
 } from "./const";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     waterList: [],
     basket: [],
     currentPage: "",
+    openModal: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -92,6 +94,12 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 basket: cloneBasket,
+            };
+
+        case CHANGE_MODAL_VUE:
+            return {
+                ...state,
+                openModal: action.payload,
             };
 
         default:

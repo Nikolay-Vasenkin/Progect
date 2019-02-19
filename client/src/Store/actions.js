@@ -6,6 +6,7 @@ import {
     ADD_PRODUCT,
     CHANGE_COUNT_PRODUCT,
     DELETE_PRODUCT,
+    CHANGE_MODAL_VUE,
 } from "./const";
 
 export const addProduct = (product) => {
@@ -55,5 +56,12 @@ export const changeCountProduct = (indexPizza) => {
     return {
         type: CHANGE_COUNT_PRODUCT,
         payload: indexPizza
+    }
+};
+
+export const changeModal = (bool) => {
+    return {
+        type: CHANGE_MODAL_VUE,
+        payload: bool
     }
 };

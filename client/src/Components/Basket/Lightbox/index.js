@@ -7,8 +7,13 @@ import Dialog from '@material-ui/core/Dialog';
 /** IMG **/
 import CloseModalImg from '../../../Static/img/basket/delete_product.svg';
 
+/** REDUX **/
+import {bindActionCreators} from "redux";
+import {changeModal} from "../../../Store/actions";
+import connect from "react-redux/es/connect/connect";
 
-export default class Form extends Component {
+
+class Form extends Component {
 
     constructor(props) {
         super(props);
@@ -17,7 +22,6 @@ export default class Form extends Component {
             email: "",
             telephone: "",
             successSend: false,
-            openModal: false,
         }
     }
 
@@ -26,18 +30,8 @@ export default class Form extends Component {
         return re.test(String(email).toLowerCase());
     }
 
-    closeModal() {
-        this.setState({openModal: false});
-    }
-
-    componentWillReceiveProps(nextProps){
-        this.setState({
-            openModal: nextProps.open,
-        });
-    }
-
     render() {
-        const {openModal} = this.state;
+        const {openModal, changeModal} = this.props;
         return (
             <Dialog maxWidth="sm" fullWidth={true} open={openModal} className="form_modal">
                 <section className="content_form_modal">
@@ -47,7 +41,7 @@ export default class Form extends Component {
                         <img
                             src={CloseModalImg}
                             alt="close"
-                            onClick={() => this.closeModal()}
+                            onClick={() => changeModal(false)}
                         />
                     </div>
 
@@ -103,13 +97,26 @@ export default class Form extends Component {
                         <p>Спасибо за Ваш заказ! Оператор свяжется с вами
                             в течение 10 - 20 минут для уточнения
                             дополнительной информации. Приятного аппетита!</p>
-                        <button onClick={() => this.closeModal()}>
+                        <button onClick={() => changeModal(false)}>
                             Закрыть
                         </button>
                     </section>
-
                 </section>
             </Dialog>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        openModal: state.openModal,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeModal: bindActionCreators(changeModal, dispatch),
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

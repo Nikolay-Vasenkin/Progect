@@ -10,6 +10,7 @@ import {
     changeCurrentPage,
     changeCountProduct,
     deleteProduct,
+    changeModal,
 } from "../../Store/actions";
 import {Link} from 'react-router-dom'
 import connect from "react-redux/es/connect/connect";
@@ -31,17 +32,18 @@ class Basket extends Component {
 
     componentWillMount() {
         this.props.changeCurrentPage('basket');
+        this.setState({openModal: false});
+        window.scrollTo(0,0);
     }
 
     render() {
-        const {openModal} = this.state;
-        const {basket} = this.props;
+        const {basket, changeModal} = this.props;
         return (
-            <div className="basket_page">
-                <LightBox open={openModal}/>
+            <div className="basket_page ">
+                <LightBox/>
                 {
                     basket.length === 0 ?
-                    <div className="empty_basket flex">
+                    <div className="empty_basket">
                         <p>В вашей корзине нет продуктов</p>
                         <Link to="/">
                             <button>Вернуться в меню</button>
@@ -111,7 +113,7 @@ class Basket extends Component {
                                             return sum + el.price * el.count
                                         }, 0)} </span> рублей
                                         </p>
-                                        <button onClick={() => this.setState({openModal: true})}>
+                                        <button onClick={() => changeModal(true)}>
                                             Заказать
                                         </button>
                                     </div>
@@ -136,6 +138,7 @@ const mapDispatchToProps = (dispatch) => {
         changeCurrentPage: bindActionCreators(changeCurrentPage, dispatch),
         changeCountProduct: bindActionCreators(changeCountProduct, dispatch),
         deleteProduct: bindActionCreators(deleteProduct, dispatch),
+        changeModal: bindActionCreators(changeModal, dispatch),
     }
 };
 

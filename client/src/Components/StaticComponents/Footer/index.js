@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import './style.css';
 
 /** IMG **/
+import {animateScroll as scroll, Link} from "react-scroll/modules";
 import logoImg from '../../../Static/img/logo.svg';
 import connect from "react-redux/es/connect/connect";
-import {Link} from "react-router-dom";
 
 class Footer extends Component {
     render() {
@@ -13,17 +13,29 @@ class Footer extends Component {
             <footer>
                 {currentPage !== 'basket' ?
                     <div>
-                        <div className="footer_line grad">Мы рады стараться для вас</div>
+                        <div className="footer_line grad">Мы печёмся о Вас!</div>
                         <div className="my_container footer">
-                            <Link to="/" className="footer_logo">
+                            <a onClick={() => scroll.scrollToTop()} className="footer_logo">
                                 <img src={logoImg} alt="logo"/>
-                            </Link>
+                            </a>
                             <div className="footer_center">
                                 <ol>
-                                    <li>Пицца</li>
-                                    <li>Закуски</li>
-                                    <li>Напитки</li>
-                                    <li>О нас</li>
+                                    <Link to="anchor_pizza" spy={true} smooth={true} offset={-92}>
+                                        Пицца
+                                    </Link>
+
+                                    <Link to="anchor_snack" spy={true} smooth={true} offset={-92}>
+                                        Закуски
+                                    </Link>
+
+                                    <Link to="anchor_water" spy={true} smooth={true} offset={-92}>
+                                        Напитки
+                                    </Link>
+
+                                    <Link to="anchor_about" spy={true} smooth={true} offset={-92}>
+                                        О нас
+                                    </Link>
+
                                 </ol>
                                 <ol>
                                     <li className="orange_color">© 2019 Подберег Pizza</li>
@@ -35,8 +47,9 @@ class Footer extends Component {
                             <div className="footer_contact">
                                 <div className="telephone">
                                     <h2>+7929292929</h2>
-                                    <p>
-                                        Ежедневно с <i className="orange_color">8:30</i> до <i className="orange_color">22:00</i>
+                                    <p className="footer_p_tel">
+                                        Ежедневно с <i className="orange_color">
+                                        8:30</i> до <i className="orange_color">22:00</i>
                                     </p>
                                     <a className="mail">info@podbereg.pizza.com</a>
                                 </div>
@@ -47,9 +60,9 @@ class Footer extends Component {
                     <div>
                         <div className="orange_line"/>
                         <div className="my_container footer_basket ">
-                            <Link to="/" className="footer_logo">
+                            <a href="#/" className="footer_logo">
                                 <img src={logoImg} alt="logo"/>
-                            </Link>
+                            </a>
                             <div className="footer_center">
                                 <h3 className="orange_color">info@podbereg.pizza.com</h3>
                                 <ol>

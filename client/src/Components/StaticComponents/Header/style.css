@@ -41,6 +41,10 @@ header {
     flex-direction: column;
 }
 
+.footer_p_tel{
+    margin: 4px 0;
+}
+
 .telephone h2 {
     font-size: 27px;
     font-weight: bold;

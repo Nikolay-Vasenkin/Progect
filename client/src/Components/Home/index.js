@@ -18,6 +18,7 @@ class Home extends Component {
 
     componentWillMount() {
         this.props.changeCurrentPage('home');
+        window.scrollTo(0,0);
     }
 
     render() {
@@ -68,7 +69,10 @@ class Home extends Component {
                             )
                         })}
                     </div>
-                    <h1>О нас</h1>
+
+                    <Element name="anchor_about">
+                        <h1>О нас</h1>
+                    </Element>
                     <About/>
                 </main>
 

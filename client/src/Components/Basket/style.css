@@ -7,16 +7,31 @@
     width: 100%;
 }
 
-/* empty */
+/* Empty */
 .empty_basket{
-    padding-top: 80px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    padding-bottom: 43px;
 }
 
 .empty_basket p {
     margin-bottom: 20px;
     font-size: 20px;
+}
+
+@media only screen and (max-height: 390px){
+    .empty_basket {
+        height: 200px;
+        padding-bottom: 0;
+        position: static;
+    }
 }
 
 /* !empty */
