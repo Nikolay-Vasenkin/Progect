@@ -32,4 +32,8 @@
     .about_box {
         width: 100%;
     }
+
+    .logo_about {
+        max-width: 200px;
+    }
 }

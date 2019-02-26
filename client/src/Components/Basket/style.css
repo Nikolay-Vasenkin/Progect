@@ -19,12 +19,16 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 43px;
-    z-index: -2;
+    min-width: 320px;
 }
 
 .empty_basket p {
     margin-bottom: 20px;
     font-size: 20px;
+}
+
+.empty_basket a {
+    z-index: 5;
 }
 
 @media only screen and (max-height: 390px){
@@ -41,7 +45,7 @@
     flex-direction: column;
 }
 
-.row_table {
+.row_table, .row_table_mini {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -126,6 +130,53 @@
     width: 100%;
 }
 
+/* MINI*/
+.row_table_mini{
+    flex-direction: column;
+    max-width: 400px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    border: 1px solid #323232;
+}
+
+.b_mini_delete{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+}
+
+.b_mini_name {
+    padding: 0 25px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.b_mini_price{
+    width: 100%;
+    justify-content: space-between;
+    max-width: 300px;
+}
+
+.b_mini_price_slice{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.b_mini_price_slice p {
+    margin-bottom: 10px;
+}
+
+.b_mini_price p{
+    font-size: 16px;
+}
+/* Panel */
 .basket_buy_panel {
     width: 100%;
     justify-content: space-between;

@@ -32,20 +32,6 @@
     color: #000000!important;
     opacity: 1!important;
 }
-.main_bg{
-    height: 70vh;
-}
-.main_bg_1{
-    background: url('../../../Static/img/main_slider/slider_1.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-.main_bg_2{
-    background: url('../../../Static/img/main_slider/slider_2.jpg') no-repeat center center;
-    background-size: cover;
-}
-
-.main_bg_3{
-    background: url('../../../Static/img/main_slider/slider_3.jpg') no-repeat center center;
-    background-size: cover;
+.slider_images{
+    width: 100%;
 }

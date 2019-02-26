@@ -143,8 +143,12 @@ nav a img {
         width: 140px;
     }
 
-    .header_left .telephone {
+    .header_left .telephone, .basket_phone {
         display: none;
+    }
+
+    .basket_header_info{
+        text-align: right;
     }
 
     .header_panel {
@@ -154,6 +158,7 @@ nav a img {
 }
 
 @media screen and (max-width: 650px) {
+
     nav h3 {
         display: none;
     }

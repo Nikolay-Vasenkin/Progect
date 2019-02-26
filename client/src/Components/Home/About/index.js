@@ -16,7 +16,6 @@ export default class About extends Component {
                     </p>
                 </div>
 
-
                 <div className="about_box">
                     <h6>Ресторан пиццерии Подберег Pizza</h6>
                     <p>
@@ -31,8 +30,6 @@ export default class About extends Component {
                     </p>
                 </div>
 
-
-
                 <div className="about_box">
                     <h6>60 МИНУТ ИЛИ ПИЦЦА БЕСПЛАТНО</h6>
                     <p>
@@ -46,7 +43,6 @@ export default class About extends Component {
                         - Картой курьеру. Удобный современный способ.
                     </p>
                 </div>
-
 
                 <div className="about_box">
                     <h6>Юридические реквизиты</h6>

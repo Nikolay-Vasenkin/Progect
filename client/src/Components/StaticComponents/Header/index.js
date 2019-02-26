@@ -44,7 +44,7 @@ class Header extends Component {
                                     Бесплатная доставка от <i className="orange_color">1999</i> рублей
                                 </p>
                             </div>
-                            <div className="telephone">
+                            <div className="telephone basket_phone">
                                 <h2>+7 (929) 292 90 29</h2>
                                 <p>Ежедневно с <i className="orange_color">8:30</i> до <i
                                     className="orange_color">22:00</i></p>

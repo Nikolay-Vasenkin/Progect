@@ -65,13 +65,13 @@ class Footer extends Component {
                     :
                     <div>
                         <div className="orange_line"/>
-                        <div className="my_container footer_basket ">
-                            <a href="#/" className="footer_logo">
+                        <div className="my_container footer_basket">
+                            <a href="#/" className="basket_footer_logo">
                                 <img src={logoImg} alt="logo"/>
                             </a>
                             <div className="footer_center">
                                 <h3 className="orange_color">info@podbereg.pizza.com</h3>
-                                <ol>
+                                <ol className="ol_footer">
                                     <li className="orange_color">© 2019 Подберег Pizza</li>
                                     <li>Правовая информация</li>
                                     <li>Колорийность и состав</li>

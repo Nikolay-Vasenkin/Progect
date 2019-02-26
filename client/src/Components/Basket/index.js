@@ -21,6 +21,37 @@ import deleteImg from '../../Static/img/basket/delete_product.svg';
 import plusImg from '../../Static/img/basket/plus.svg';
 import minusImg from '../../Static/img/basket/minus.svg';
 
+
+const Test = () => {
+    return (
+        <div className="row_table">
+            <div className="b_name">
+                <h3 className="orange_color">Пицца</h3>
+                <span>20 см</span>
+            </div>
+            <div className="b_price">234 рублей</div>
+            <div className="b_count">
+                <div className="count_box">
+                    <div className="btn_count">
+                        <img src={minusImg} alt="minus"/>
+                    </div>
+                    <span>2</span>
+                    <div className="btn_count">
+                        <img src={plusImg} alt="plus"/>
+                    </div>
+                </div>
+            </div>
+            <div className="b_sum">12345 рублей</div>
+            <div className="delete_product">
+                <img
+                    src={deleteImg}
+                    alt="deleteProduct"
+                />
+            </div>
+        </div>
+    )
+};
+
 class Basket extends Component {
 
     constructor(props) {
@@ -98,6 +129,50 @@ class Basket extends Component {
                                                     alt="deleteProduct"
                                                     onClick={() => this.props.deleteProduct(el)}
                                                 />
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                                {basket.map((el, i) => {
+                                    return (
+                                        <div className="row_table_mini" key={i}>
+                                            <img
+                                                src={deleteImg}
+                                                alt="deleteProduct"
+                                                className="b_mini_delete"
+                                                onClick={() => this.props.deleteProduct(el)}
+                                            />
+                                            <div className="b_mini_name">
+                                                <h3 className="orange_color">{el.name}</h3>
+                                                <span> {el.size}</span>
+                                            </div>
+                                            <div className="b_mini_price flex">
+                                                <div className="b_mini_price_slice">
+                                                    <p>{el.price} рублей</p>
+                                                    <div className="count_box">
+                                                        <div className="btn_count"
+                                                             onClick={() => this.props.changeCountProduct({
+                                                                 _id: el._id,
+                                                                 act: "dec"
+                                                             })}
+                                                        >
+                                                            <img src={minusImg} alt="minus"/>
+                                                        </div>
+                                                        <span>{el.count}</span>
+                                                        <div className="btn_count"
+                                                             onClick={() => this.props.changeCountProduct({
+                                                                 _id: el._id,
+                                                                 act: "inc"
+                                                             })}
+                                                        >
+                                                            <img src={plusImg} alt="plus"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="b_mini_price_slice">
+                                                    {el.price * el.count}<br/>
+                                                    рублей
+                                                </p>
                                             </div>
                                         </div>
                                     )
