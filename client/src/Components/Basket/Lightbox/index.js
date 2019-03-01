@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './style.css';
 
 /** MODULE **/
@@ -11,7 +11,6 @@ import CloseModalImg from '../../../Static/img/basket/delete_product.svg';
 import {bindActionCreators} from "redux";
 import {changeModal} from "../../../Store/actions";
 import connect from "react-redux/es/connect/connect";
-
 
 class Form extends Component {
 
@@ -33,7 +32,7 @@ class Form extends Component {
     render() {
         const {openModal, changeModal} = this.props;
         return (
-            <Dialog maxWidth="sm" fullWidth={true} open={openModal} className="form_modal">
+            <Dialog maxWidth="bg" fullWidth={true} open={openModal} className="form_modal">
                 <section className="content_form_modal">
 
                     <div className="flex title_modal">
@@ -85,7 +84,7 @@ class Form extends Component {
                             onClick={(e) => {
                                 e.preventDefault();
                                 // if (this.validateEmail(this.state.email)) {
-                                    this.setState({successSend: true})
+                                this.setState({successSend: true})
                                 // }
                             }}
                         >Заказать

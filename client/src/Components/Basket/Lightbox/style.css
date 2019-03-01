@@ -1,5 +1,6 @@
 .form_modal {
     margin: 20px 0;
+    min-width: 340px;
 }
 
 .content_form_modal {
@@ -66,4 +67,23 @@
 
 .success_form_sent button {
     margin-top: 30px;
+}
+
+@media only screen and (max-width: 500px) {
+    .form_modal h4 {
+        font-size: 25px;
+    }
+
+    .form_suggestion label {
+        font-size: 14px;
+    }
+
+    .form_suggestion input{
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .success_form_sent p {
+        font-size: 14px;
+    }
 }
