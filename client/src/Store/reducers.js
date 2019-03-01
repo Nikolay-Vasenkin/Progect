@@ -15,7 +15,7 @@ const initialState = {
     waterList: [],
     basket: [],
     currentPage: "",
-    openModal: true,
+    openModal: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
