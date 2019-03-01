@@ -4,7 +4,7 @@ body {
     min-width: 330px;
 }
 
-img, .row_table, .buy, .size_panel {
+img, .buy, .size_panel {
     -ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;

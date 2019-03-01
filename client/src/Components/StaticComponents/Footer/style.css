@@ -115,6 +115,9 @@
         text-align: center;
         align-items: center;
     }
+    .empty_basket{
+        padding-bottom: 185px!important;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -134,5 +137,9 @@
     .hidden_telephone {
         margin-top: 10px;
         text-align: center;
+    }
+
+    .empty_basket{
+        padding-bottom: 260px!important;
     }
 }
