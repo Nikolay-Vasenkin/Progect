@@ -78,6 +78,7 @@ export const rootReducer = (state = initialState, action) => {
                     price: price,
                     count: 1,
                 };
+                console.log(addProduct);
                 return {
                     ...state,
                     basket: state.basket.concat(addProduct),

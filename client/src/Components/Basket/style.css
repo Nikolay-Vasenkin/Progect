@@ -136,47 +136,33 @@
 .row_table_mini {
     display: none;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 600px;
     position: relative;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    margin: 10px 0;
 }
 
-.b_mini_delete {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
-}
-
-.b_mini_name {
+.b_mini_top, .b_mini_bottom {
+    width: 100%;
+    justify-content: space-between;
     padding: 0 25px;
-    text-align: center;
     margin-bottom: 10px;
 }
 
 .b_mini_price {
-    width: 100%;
-    justify-content: space-between;
-    max-width: 300px;
+    font-size: 20px;
 }
 
-.b_mini_price_slice {
-    text-align: center;
+.b_mini_delete {
+    cursor: pointer;
+    width: 20px;
+}
+
+.b_mini_right{
+    width: 115px;
     display: flex;
-    flex-direction: column;
-    width: 50%;
-    align-items: center;
-}
-
-.b_mini_price_slice p {
-    margin-bottom: 10px;
-}
-
-.b_mini_price p {
-    font-size: 16px;
+    justify-content: flex-end;
 }
 
 /* Panel */

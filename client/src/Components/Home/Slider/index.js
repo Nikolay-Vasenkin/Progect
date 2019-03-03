@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import './style.css';
 import SlickSlider from 'react-slick';
 
+import img1 from '../../../Static/img/main_slider/slider_1.jpg';
+import img2 from '../../../Static/img/main_slider/slider_2.jpg';
+import img3 from '../../../Static/img/main_slider/slider_3.jpg';
+
 export default class Slider extends Component {
 
     constructor(props){
@@ -19,11 +23,7 @@ export default class Slider extends Component {
                     { breakpoint: 550, settings: { dots: false, arrows: false}},
                 ]
             },
-            arrayImg: [
-                "https://storage.cloud.google.com/pomelov/slider/slider_1.jpg",
-                "https://storage.cloud.google.com/pomelov/slider/slider_2.jpg",
-                "https://storage.cloud.google.com/pomelov/slider/slider_3.jpg",
-            ]
+            arrayImg: [img1,img2,img3]
         }
     }
 

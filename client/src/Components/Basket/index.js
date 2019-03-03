@@ -105,43 +105,40 @@ class Basket extends Component {
                                     {basket.map((el, i) => {
                                         return (
                                             <div className="row_table_mini" key={i}>
-                                                <img
-                                                    src={deleteImg}
-                                                    alt="deleteProduct"
-                                                    className="b_mini_delete"
-                                                    onClick={() => this.props.deleteProduct(el)}
-                                                />
-                                                <div className="b_mini_name">
-                                                    <h3 className="orange_color">{el.name}</h3>
-                                                    <span> {el.size}</span>
+                                                <div className="b_mini_top flex">
+                                                    <div>
+                                                        <h3 className="orange_color">{el.name}</h3>
+                                                        <span> {el.size}</span>
+                                                    </div>
+                                                    <p className="b_mini_price b_mini_right">{el.price * el.count} ₽</p>
                                                 </div>
-                                                <div className="b_mini_price flex">
-                                                    <div className="b_mini_price_slice">
-                                                        <p>{el.price} рублей</p>
-                                                        <div className="count_box">
-                                                            <div className="btn_count"
-                                                                 onClick={() => this.props.changeCountProduct({
-                                                                     _id: el._id,
-                                                                     act: "dec"
-                                                                 })}
-                                                            >
-                                                                <img src={minusImg} alt="minus"/>
-                                                            </div>
-                                                            <span>{el.count}</span>
-                                                            <div className="btn_count"
-                                                                 onClick={() => this.props.changeCountProduct({
-                                                                     _id: el._id,
-                                                                     act: "inc"
-                                                                 })}
-                                                            >
-                                                                <img src={plusImg} alt="plus"/>
-                                                            </div>
+                                                <div className="b_mini_bottom flex">
+                                                    <img
+                                                        src={deleteImg}
+                                                        alt="deleteProduct"
+                                                        className="b_mini_delete"
+                                                        onClick={() => this.props.deleteProduct(el)}
+                                                    />
+
+                                                    <div className="count_box b_mini_right">
+                                                        <div className="btn_count"
+                                                             onClick={() => this.props.changeCountProduct({
+                                                                 _id: el._id,
+                                                                 act: "dec"
+                                                             })}
+                                                        >
+                                                            <img src={minusImg} alt="minus"/>
+                                                        </div>
+                                                        <span>{el.count}</span>
+                                                        <div className="btn_count"
+                                                             onClick={() => this.props.changeCountProduct({
+                                                                 _id: el._id,
+                                                                 act: "inc"
+                                                             })}
+                                                        >
+                                                            <img src={plusImg} alt="plus"/>
                                                         </div>
                                                     </div>
-                                                    <p className="b_mini_price_slice">
-                                                        {el.price * el.count}<br/>
-                                                        рублей
-                                                    </p>
                                                 </div>
                                             </div>
                                         )

@@ -32,7 +32,7 @@ class Form extends Component {
     render() {
         const {openModal, changeModal} = this.props;
         return (
-            <Dialog maxWidth="bg" fullWidth={true} open={openModal} className="form_modal">
+            <Dialog maxWidth="sm" fullWidth={true} open={openModal} className="form_modal">
                 <section className="content_form_modal">
 
                     <div className="flex title_modal">
