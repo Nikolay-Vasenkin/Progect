@@ -3,6 +3,7 @@ import './style.css';
 
 /** MODULE **/
 import Dialog from '@material-ui/core/Dialog';
+import axios from "axios";
 
 /** IMG **/
 import CloseModalImg from '../../../Static/img/basket/delete_product.svg';
@@ -21,7 +22,43 @@ class Form extends Component {
             email: "",
             telephone: "",
             successSend: false,
+            status: "",
         }
+    }
+
+    sendEmail() {
+        const {name, email, telephone, } = this.state;
+        if (!this.validateEmail(email)) {
+            this.setState({status: "Введите корректную почту"});
+        } else if(name === ""){
+            this.setState({status: "Введите ваше имя"});
+        } else if(telephone === ""){
+            this.setState({status: "Введите телефон"});
+        } else {
+            const order = this.formatBasket();
+            axios.post('/mail', {
+                name: name,
+                email: email,
+                telephone: telephone,
+                order: order,
+            }).then(res => {
+                console.info(res);
+                this.setState({successSend: true});
+            }).catch(err => {
+                console.info("err");
+                console.error(err);
+            });
+        }
+    }
+
+    formatBasket(){
+        const {basket} = this.props;
+        let order = "";
+        basket.map(el => {
+            order += `${el.name} ${el.count} шт. Цена: ${el.price}
+`;
+        });
+        return order;
     }
 
     validateEmail(email) {
@@ -29,7 +66,12 @@ class Form extends Component {
         return re.test(String(email).toLowerCase());
     }
 
+    componentDidMount(){
+        this.formatBasket();
+    }
+
     render() {
+        const {name, email, telephone, successSend, status} = this.state;
         const {openModal, changeModal} = this.props;
         return (
             <Dialog maxWidth="sm" fullWidth={true} open={openModal} className="form_modal">
@@ -37,61 +79,49 @@ class Form extends Component {
 
                     <div className="flex title_modal">
                         <h4 className="orange_color">Заказ</h4>
-                        <img
-                            src={CloseModalImg}
-                            alt="close"
-                            onClick={() => changeModal(false)}
-                        />
+                        <img src={CloseModalImg} alt="close" onClick={() => changeModal(false)}/>
                     </div>
 
-                    <form className="form_suggestion" style={{
-                        display: !this.state.successSend ? 'flex' : 'none'
-                    }}>
+                    <form className="form_suggestion" style={{display: !successSend ? 'flex' : 'none'}}>
+
                         <section className="input_box">
-                            <label htmlFor="">Как можно к вам обращаться?</label>
+                            <label>Как можно к вам обращаться?</label>
                             <input
-                                value={this.state.name}
+                                value={name}
                                 type="text"
                                 placeholder="ФИО"
-                                onChange={(e) => {
-                                    this.setState({name: e.target.value})
-                                }}
+                                onChange={(e) => this.setState({name: e.target.value})}
                             />
                         </section>
                         <section className="input_box">
-                            <label htmlFor="">Введите Ваш номер телефона</label>
+                            <label>Введите Ваш номер телефона</label>
                             <input
-                                value={this.state.telephone}
+                                value={telephone}
                                 type="text"
                                 placeholder="Номер телефона"
-                                onChange={(e) => {
-                                    this.setState({telephone: e.target.value})
-                                }}
+                                onChange={(e) => this.setState({telephone: e.target.value})}
                             />
                         </section>
                         <section className="input_box">
-                            <label htmlFor="">Введите Вашу электронную почту</label>
+                            <label>Введите Вашу электронную почту</label>
                             <input
-                                value={this.state.email}
+                                value={email}
                                 type="email"
                                 placeholder="E-mail"
-                                onChange={(e) => {
-                                    this.setState({email: e.target.value})
-                                }}
+                                onChange={(e) => this.setState({email: e.target.value})}
                             />
                         </section>
-                        <button
-                            onClick={(e) => {
-                                e.preventDefault();
-                                // if (this.validateEmail(this.state.email)) {
-                                this.setState({successSend: true})
-                                // }
-                            }}
+                        <button onClick={(e) => {
+                            e.preventDefault();
+                            this.sendEmail();
+                        }}
                         >Заказать
                         </button>
+                        <p className="mail_status">{status}</p>
                     </form>
+
                     <section className="success_form_sent" style={{
-                        display: this.state.successSend ? 'flex' : 'none'
+                        display: successSend ? 'flex' : 'none'
                     }}>
                         <p>Спасибо за Ваш заказ! Оператор свяжется с вами
                             в течение 10 - 20 минут для уточнения
@@ -109,6 +139,7 @@ class Form extends Component {
 const mapStateToProps = (state) => {
     return {
         openModal: state.openModal,
+        basket: state.basket,
     }
 };
 

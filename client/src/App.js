@@ -13,6 +13,7 @@ import {bindActionCreators} from "redux";
 import {getPizzaList, getSnackList, getWaterList} from "./Store/actions";
 import connect from "react-redux/es/connect/connect";
 
+
 class App extends Component {
 
     startRequest = async () => {
