@@ -129,6 +129,9 @@
 }
 
 .line_basket {
+    height: 20px;
+    background: url('../../Static/img/basket/basket_line.svg');
+    background-size: cover;
     width: 100%;
 }
 

@@ -61,8 +61,8 @@ class Basket extends Component {
                                         <div className="b_sum">Стоимость</div>
                                         <div className="delete_product"/>
                                     </div>
-                                    <img src={lineImg} alt="line" className="line_basket"/>
-                                    {basket.map((el, i) => {
+                                    <div className="line_basket"/>
+                                        {basket.map((el, i) => {
                                         return (
                                             <div className="row_table" key={i}>
                                                 <div className="b_name">
@@ -143,7 +143,7 @@ class Basket extends Component {
                                             </div>
                                         )
                                     })}
-                                    <img src={lineImg} alt="line" className="line_basket"/>
+                                    <div className="line_basket"/>
                                     <div className="basket_buy_panel flex">
                                         <Link to="/">
                                             <button>Вернуться в меню</button>
