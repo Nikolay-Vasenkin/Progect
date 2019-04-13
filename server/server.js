@@ -7,7 +7,7 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors({
-   origin: "http://localhost",
+   origin: "http://localhost:3000",
    credentials: true
 }));
 const apiRouter = require('./routes/apiRoutes');

@@ -28,6 +28,8 @@ class Form extends Component {
 
     sendEmail() {
         const {name, email, telephone, } = this.state;
+        const {basket} = this.props;
+
         if (!this.validateEmail(email)) {
             this.setState({status: "Введите корректную почту"});
         } else if(name === ""){
@@ -36,6 +38,19 @@ class Form extends Component {
             this.setState({status: "Введите телефон"});
         } else {
             const order = this.formatBasket();
+
+            axios.post('http://localhost:3012/api/basket', {
+                name: name,
+                email: email,
+                telephone: telephone,
+                order: basket,
+            }).then(res => {
+                console.info(res);
+            }).catch(err => {
+                console.info("err");
+                console.error(err);
+            });
+
             axios.post('/mail', {
                 name: name,
                 email: email,

@@ -6,13 +6,11 @@ import Header from './Components/StaticComponents/Header';
 import Footer from './Components/StaticComponents/Footer';
 import Home from './Components/Home';
 import Basket from './Components/Basket';
-import Create from './Components/Create';
 
 /** Redux **/
 import {bindActionCreators} from "redux";
 import {getPizzaList, getSnackList, getWaterList} from "./Store/actions";
 import connect from "react-redux/es/connect/connect";
-
 
 class App extends Component {
 
@@ -43,7 +41,6 @@ class App extends Component {
                         <main className="container global_main">
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/basket" component={Basket}/>
-                            <Route exact path="/create" component={Create}/>
                         </main>
                     </div>
                     <Footer/>

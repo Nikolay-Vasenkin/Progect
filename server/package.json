@@ -1,8 +1,8 @@
 {
-  "name": "bobr",
+  "name": "podbereg",
   "version": "1.0.0",
   "author": {
-    "name": "Nikolay"
+    "name": "Sergey"
   },
   "license": "MIT",
   "scripts": {
@@ -27,6 +27,7 @@
   "devDependencies": {
     "concurrently": "^4.1.0"
   },
+  "proxy": "http://localhost:3012/",
   "keywords": [
     "node",
     "express",

@@ -38,6 +38,7 @@ class Basket extends Component {
 
     render() {
         const {basket, changeModal} = this.props;
+        console.info(basket);
         return (
             <div className="basket_page">
                 <LightBox/>
